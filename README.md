@@ -397,7 +397,7 @@
 
 ## Strings
 
-  - [6.1](#6.1) <a name='6.1'></a> Use single quotes `''` for strings.
+  - [6.1](#6.1) <a name='6.1'></a> 对string用单引号 `''`.
 
     ```javascript
     // bad
@@ -407,8 +407,8 @@
     const name = 'Capt. Janeway';
     ```
 
-  - [6.2](#6.2) <a name='6.2'></a> Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - [6.3](#6.3) <a name='6.3'></a> Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [6.2](#6.2) <a name='6.2'></a> 长度超过80个字符的字符串应使用字符串串联写在多行中.
+  - [6.3](#6.3) <a name='6.3'></a> 注意：如果过度使用,带有连接的长字符串可能会影响性能. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -427,9 +427,9 @@
     ```
 
   <a name="es6-template-literals"></a>
-  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation.
+  - [6.4](#6.4) <a name='6.4'></a> 用字符串模板而不是字符串拼接来组织可编程字符串.
 
-  > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+  > Why? 模板字符串更具可读性、语法简洁、字符串插入参数.
 
     ```javascript
     // bad
@@ -459,9 +459,9 @@
 
 ## Functions
 
-  - [7.1](#7.1) <a name='7.1'></a> Use function expressions instead of function declarations.
+  - [7.1](#7.1) <a name='7.1'></a> 用命名函数表达式而不是函数声明.
 
-  > Why? Badly placed Function Declarations are misleading and there are few (if any) situations where you can’t use a Function Expression assigned to a variable instead. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
+  > Why? 错误放置的函数声明会引起误解,在少数情况下（如果有）您不能使用分配给变量的函数表达式. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
 
     ```javascript
     // bad
@@ -477,7 +477,7 @@
     };
     ```
 
-  - [7.2](#7.2) <a name='7.2'></a> Function expressions:
+  - [7.2](#7.2) <a name='7.2'></a> 函数表达式:
 
     ```javascript
     // immediately-invoked function expression (IIFE)
@@ -486,8 +486,8 @@
     })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.3](#7.3) <a name='7.3'></a> 不要在非函数块（if、while等等）内声明函数。把这个函数分配给一个变量。浏览器会允许你这样做,但浏览器解析方式不同,这是一个坏消息.
+  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262将 `block` 定义为语句列表。 函数声明不是语句. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -514,7 +514,7 @@
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [7.5](#7.5) <a name='7.5'></a> 不要用`arguments`命名参数。它的优先级高于每个函数作用域自带的 `arguments` 对象, 这会导致函数自带的 `arguments` 值被覆盖.
 
     ```javascript
     // bad
@@ -529,36 +529,32 @@
     ```
 
   <a name="es6-rest"></a>
-  - [7.6](#7.6) <a name='7.6'></a> Never use `arguments`, opt to use rest syntax `...` instead.
+  - [7.6](#7.6) <a name='7.6'></a> 不要使用`arguments`,用rest语法`...`代替.
 
-  > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments`.
+  > Why? `...`明确你想用哪个参数。而且rest参数是真数组,而不是类似数组的`arguments`.
 
     ```javascript
     // bad
     const concatenateAll = function() {
-
       const args = Array.prototype.slice.call(arguments);
       return args.join('');
-
     }
 
     // good
     const concatenateAll = function(...args) {
-
       return args.join('');
-
     }
     ```
 
   <a name="es6-default-parameters"></a>
-  - [7.7](#7.7) <a name='7.7'></a> Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#7.7) <a name='7.7'></a> 用默认参数语法而不是在函数里对参数重新赋值.
 
     ```javascript
     // really bad
     const handleThings = function(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
+      // 不, 我们不该改arguments
+      // 第二： 如果 opts 的值为 false, 它会被赋值为 {}
+      // 虽然你想这么写, 但是这个会带来一些细微的bug
       opts = opts || {};
       // ...
     }
@@ -576,13 +572,14 @@
 
     // good
     const handleThings = function(opts = {}) {
+      //opts为undefined时,会被赋值为{}
       // ...
     }
     ```
 
-  - [7.8](#7.8) <a name='7.8'></a> Avoid side effects with default parameters
+  - [7.8](#7.8) <a name='7.8'></a> 默认参数避免副作用.
 
-  > Why? They are confusing to reason about.
+  > Why? 它会令人迷惑不解.
 
   ```javascript
   var b = 1;
@@ -603,11 +600,11 @@
 
 ## Arrow Functions
 
-  - [8.1](#8.1) <a name='8.1'></a> When you must use function expressions (as when passing an anonymous function), use arrow function notation.
+  - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式时（如传递匿名函数时）,请使用箭头函数符号.
 
-  > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
+  > Why? 它创建了一个`this`的当前执行上下文的函数的版本,这通常就是你想要的;而且箭头函数是更简洁的语法.
 
-  > Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+  > Why not? 如果函数相当复杂,则可以将该逻辑移到其自己的函数声明中.
 
     ```javascript
     // bad
@@ -628,11 +625,11 @@
     [1, 2, 3].map((x) => x * x;);
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
+  - [8.2](#8.2) <a name='8.2'></a> 如果函数主体适合一行且只有一个参数,则可以忽略花括号和括号,并使用隐式返回。 否则,添加括号,花括号并使用`return`语句.
 
-  > Why? Syntactic sugar. It reads well when multiple functions are chained together.
+  > Why? 语法糖,当多个函数链在一起的时候易读.
 
-  > Why not? If you plan on returning an object.
+  > Why not? 当你计算返回一个对象.
 
     ```javascript
     // good
@@ -649,23 +646,19 @@
 
 ## Constructors
 
-  - [9.1](#9.1) <a name='9.1'></a> Always use `class`. Avoid manipulating `prototype` directly.
+  - [9.1](#9.1) <a name='9.1'></a> 常用`class`,避免直接操作`prototype`.
 
-  > Why? `class` syntax is more concise and easier to reason about.
+  > Why? `class` 语法更简洁更易理解.
 
     ```javascript
     // bad
     function Queue(contents = []) {
-
       this._queue = [...contents];
-
     }
     Queue.prototype.pop = function() {
-
       const value = this._queue[0];
       this._queue.splice(0, 1);
       return value;
-
     }
 
 
@@ -673,54 +666,41 @@
     class Queue {
 
       constructor(contents = []) {
-
         this._queue = [...contents];
-
       }
 
       pop() {
-
         const value = this._queue[0];
         this._queue.splice(0, 1);
         return value;
-
       }
-
     }
     ```
 
-  - [9.2](#9.2) <a name='9.2'></a> Use `extends` for inheritance.
+  - [9.2](#9.2) <a name='9.2'></a> 用`extends`实现继承.
 
-  > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+  > Why? 它是一种内置的方法来继承原型功能而不打破 `instanceof`.
 
     ```javascript
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
-
       Queue.apply(this, contents);
-
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function() {
-
       return this._queue[0];
-
     }
 
     // good
     class PeekableQueue extends Queue {
-
       peek() {
-
         return this._queue[0];
-
       }
-
     }
     ```
 
-  - [9.3](#9.3) <a name='9.3'></a> Methods can return `this` to help with method chaining.
+  - [9.3](#9.3) <a name='9.3'></a> 方法可以返回`this`来实现方法链.
 
     ```javascript
     // bad
@@ -767,7 +747,7 @@
     ```
 
 
-  - [9.4](#9.4) <a name='9.4'></a> It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#9.4) <a name='9.4'></a> 写一个定制的toString()方法是可以的,只要保证它是可以正常工作且没有副作用的.
 
     ```javascript
     class Jedi {
@@ -779,15 +759,11 @@
       }
 
       getName() {
-
         return this.name;
-
       }
 
       toString() {
-
         return `Jedi - ${this.getName()}`;
-
       }
 
     }
@@ -801,9 +777,9 @@
 
 ## Modules
 
-  - [10.1](#10.1) <a name='10.1'></a> Use modules (`import`/`export`) over a non-standard module system.
+  - [10.1](#10.1) <a name='10.1'></a> 用(`import`/`export`) 模块而不是无标准的模块系统。你可以随时转到你喜欢的模块系统.
 
-  > Why? Modules are the future, let's start using the future now.
+  > Why? 模块化是未来,让我们现在就开启未来吧.
 
     ```javascript
     // bad
@@ -819,9 +795,9 @@
     export default es6;
     ```
 
-  - [10.2](#10.2) <a name='10.2'></a>And do not export directly from an import.
+  - [10.2](#10.2) <a name='10.2'></a> 不要直接从 `import` 中导出.
 
-  > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+  > Why? 虽然一行是简洁的,有一个明确的方式进口和一个明确的出口方式来保证一致性.
 
     ```javascript
     // bad
@@ -834,9 +810,9 @@
     export default es6;
     ```
 
-  - [10.3](#10.3) <a name='10.3'></a>Use TypeScript module import for non-ES6 libraries with type definitions. Check [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) for available type definition files.
+  - [10.3](#10.3) <a name='10.3'></a> 将TypeScript模块导入用于具有类型定义的非ES6库.  检查[DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) 中可用的类型定义文件.
 
-  > Why? This provides type information from external modules when available
+  > Why? 这将在可用时提供来自外部模块的类型信息
 
     ```javascript
     // bad
@@ -848,14 +824,13 @@
     import lodash = require('lodash')
     ```
 
-  - [10.4](#10.4) <a name='10.4'></a>Group module imports by type and then alphabetic by variable name. Follow these rules for ordering your module imports:
-    + External libraries with type definitions
-    + Internal typescript modules with wildcard imports
-    + Internal typescript modules without wildcard imports
-    + External libraries without type definitions
+  - [10.4](#10.4) <a name='10.4'></a> 按类型导入组模块,然后按变量名称按字母顺序。 请遵循以下规则来排序模块导入：
+     + 具有类型定义的外部库
+     + 具有通配符导入功能的内部typescript模块
+     + 不带通配符导入的内部typescript模块
+     + 没有类型定义的外部库
 
-
-  > Why? This makes your import section consistent across all modules.
+  > Why? 这样可以使导入部分在所有模块中保持一致.
 
     ```javascript
     // bad
