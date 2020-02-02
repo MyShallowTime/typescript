@@ -1,6 +1,6 @@
 # Excel Micro TypeScript Style Guide
 
-*A mostly reasonable approach to TypeScript based off of [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)*
+*基于[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)的最合理的TypeScript方法*
 
 ## Table of Contents
 
@@ -39,7 +39,7 @@
 
 ## Types
 
-  - [1.1](#1.1) <a name='1.1'></a> **Primitives**: When you access a primitive type you work directly on its value.
+  - [1.1](#1.1) <a name='1.1'></a> **基本类型**: 访问基本类型时,直接使用其值.
 
     + `string`
     + `number`
@@ -55,7 +55,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - [1.2](#1.2) <a name='1.2'></a> **Complex**: When you access a complex type you work on a reference to its value.
+  - [1.2](#1.2) <a name='1.2'></a> **复杂类型**: 访问复杂类型时,需要引用其值.
 
     + `object`
     + `array`
@@ -74,9 +74,9 @@
 
 ## References
 
-  - [2.1](#2.1) <a name='2.1'></a> Use `const` for all of your references; avoid using `var`.
+  - [2.1](#2.1) <a name='2.1'></a> 所有的赋值都用`const`,避免使用`var`.
 
-  > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
+  > why? 这样可以确保你不能重新分配引用（变异）,这可能导致bug和难以理解的代码.
 
     ```javascript
     // bad
@@ -88,9 +88,9 @@
     const b = 2;
     ```
 
-  - [2.2](#2.2) <a name='2.2'></a> If you must mutate references, use `let` instead of `var`.
+  - [2.2](#2.2) <a name='2.2'></a> 如果你一定要对参数重新赋值,那就用`let`,而不是`var`.
 
-  > Why? `let` is block-scoped rather than function-scoped like `var`.
+  > Why? 因为`let`是块级作用域,而`var`是函数级作用域.
 
     ```javascript
     // bad
@@ -110,7 +110,7 @@
     }
     ```
 
-  - [2.3](#2.3) <a name='2.3'></a> Note that both `let` and `const` are block-scoped.
+  - [2.3](#2.3) <a name='2.3'></a> 注意：`let`、`const`都是块级作用域.
 
     ```javascript
     // const and let only exist in the blocks they are defined in.
@@ -126,7 +126,7 @@
 
 ## Objects
 
-  - [3.1](#3.1) <a name='3.1'></a> Use the literal syntax for object creation.
+  - [3.1](#3.1) <a name='3.1'></a> 使用字面量创建对象.
 
     ```javascript
     // bad
@@ -136,7 +136,7 @@
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
+  - [3.2](#3.2) <a name='3.2'></a> 不要使用[保留字](http://es5.github.io/#x7.6.1)作为键. 在IE8中将无法使用.[更多信息](https://github.com/airbnb/javascript/issues/61).
 
     ```javascript
     // bad
@@ -152,7 +152,7 @@
     };
     ```
 
-  - [3.3](#3.3) <a name='3.3'></a> Use readable synonyms in place of reserved words.
+  - [3.3](#3.3) <a name='3.3'></a> 使用可读的同义词代替保留字.
 
     ```javascript
     // bad
@@ -172,9 +172,9 @@
     ```
 
   <a name="es6-computed-properties"></a>
-  - [3.4](#3.4) <a name='3.4'></a> Use computed property names when creating objects with dynamic property names.
+  - [3.4](#3.4) <a name='3.4'></a> 使用动态属性名称创建对象时,用计算后属性名称.
 
-  > Why? They allow you to define all the properties of an object in one place.
+  > Why? 这可以使你将定义的所有属性放在对象的一个地方.
 
     ```javascript
 
@@ -200,7 +200,7 @@
     ```
 
   <a name="es6-object-shorthand"></a>
-  - [3.5](#3.5) <a name='3.5'></a> Use arrow functions for object methods instead of shorthand properties or an anonymous function.
+  - [3.5](#3.5) <a name='3.5'></a> 使用箭头函数代替对象属性或匿名函数的对象方法.
 
     ```javascript
     // bad
@@ -227,7 +227,7 @@
     ```
 
   <a name="es6-object-concise"></a>
-  - [3.6](#3.6) <a name='3.6'></a> Use property value shorthand.
+  - [3.6](#3.6) <a name='3.6'></a> 用属性值缩写.
 
   > Why? It is shorter to write and descriptive.
 
@@ -245,9 +245,9 @@
     };
     ```
 
-  - [3.7](#3.7) <a name='3.7'></a> Group your shorthand properties at the beginning of your object declaration.
+  - [3.7](#3.7) <a name='3.7'></a> 将你的所有缩写放在对象声明的开始.
 
-  > Why? It's easier to tell which properties are using the shorthand.
+  > Why? 这样也是为了更方便的知道有哪些属性用了缩写.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -278,7 +278,7 @@
 
 ## Arrays
 
-  - [4.1](#4.1) <a name='4.1'></a> Use the literal syntax for array creation.
+  - [4.1](#4.1) <a name='4.1'></a> 使用字面量创建数组.
 
     ```javascript
     // bad
@@ -288,7 +288,7 @@
     const items = [];
     ```
 
-  - [4.2](#4.2) <a name='4.2'></a> Use Array#push instead of direct assignment to add items to an array.
+  - [4.2](#4.2) <a name='4.2'></a> 用Array#push代替直接向数组中添加一个值.
 
     ```javascript
     const someStack = [];
@@ -302,7 +302,7 @@
     ```
 
   <a name="es6-array-spreads"></a>
-  - [4.3](#4.3) <a name='4.3'></a> Use array spreads `...` to copy arrays.
+  - [4.3](#4.3) <a name='4.3'></a> 用扩展运算符 `...` 做数组浅拷贝.
 
     ```javascript
     // bad
@@ -317,7 +317,7 @@
     // good
     const itemsCopy = [...items];
     ```
-  - [4.4](#4.4) <a name='4.4'></a> To convert an array-like object to an array, use Array#from.
+  - [4.4](#4.4) <a name='4.4'></a> 用 [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 将一个类数组对象转成一个数组.
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -328,38 +328,32 @@
 
 ## Destructuring
 
-  - [5.1](#5.1) <a name='5.1'></a> Use object destructuring when accessing and using multiple properties of an object.
+  - [5.1](#5.1) <a name='5.1'></a>用对象的解构赋值来获取和使用对象某个或多个属性值.
 
-  > Why? Destructuring saves you from creating temporary references for those properties.
+  > Why? 解构保存了这些属性的临时值/引用.
 
     ```javascript
     // bad
     const getFullName = function(user) {
-
       const firstName = user.firstName;
       const lastName = user.lastName;
 
       return `${firstName} ${lastName}`;
-
     }
 
     // good
     const getFullName = function(obj) {
-
       const { firstName, lastName } = obj;
       return `${firstName} ${lastName}`;
-
     }
 
     // best
     const getFullName = function({ firstName, lastName }) {
-
       return `${firstName} ${lastName}`;
-
     }
     ```
 
-  - [5.2](#5.2) <a name='5.2'></a> Use array destructuring.
+  - [5.2](#5.2) <a name='5.2'></a> 用数组解构.
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -372,29 +366,29 @@
     const [first, second] = arr;
     ```
 
-  - [5.3](#5.3) <a name='5.3'></a> Use object destructuring for multiple return values, not array destructuring.
+  - [5.3](#5.3) <a name='5.3'></a> 多个返回值用对象的解构,而不是数据解构.
 
-  > Why? You can add new properties over time or change the order of things without breaking call sites.
+  > Why? 你可以在后期添加新的属性或者变换变量的顺序而不会打破原有的调用.
 
     ```javascript
     // bad
     const processInput = function(input) {
-      // then a miracle occurs
+      // 然后奇迹发生了
       return [left, right, top, bottom];
 
     }
 
-    // the caller needs to think about the order of return data
+    // 调用者需要想一想返回值的顺序
     const [left, __, top] = processInput(input);
 
     // good
     const processInput = function(input) {
-      // then a miracle occurs
+      // 然后奇迹发生了
       return { left, right, top, bottom };
 
     }
 
-    // the caller selects only the data they need
+    // 调用者只需要选择他想用的值就好了
     const { left, right } = processInput(input);
     ```
 
