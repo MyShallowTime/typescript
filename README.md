@@ -76,7 +76,7 @@
 
   - [2.1](#2.1) <a name='2.1'></a> 所有的赋值都用`const`,避免使用`var`.
 
-  > why? 这样可以确保你不能重新分配引用（变异）,这可能导致bug和难以理解的代码.
+  > why? 这样可以确保你不能重新分配引用(变异),这可能导致bug和难以理解的代码.
 
     ```javascript
     // bad
@@ -110,7 +110,7 @@
     }
     ```
 
-  - [2.3](#2.3) <a name='2.3'></a> 注意：`let`、`const`都是块级作用域.
+  - [2.3](#2.3) <a name='2.3'></a> 注意:`let`、`const`都是块级作用域.
 
     ```javascript
     // const and let only exist in the blocks they are defined in.
@@ -408,7 +408,7 @@
     ```
 
   - [6.2](#6.2) <a name='6.2'></a> 长度超过80个字符的字符串应使用字符串串联写在多行中.
-  - [6.3](#6.3) <a name='6.3'></a> 注意：如果过度使用,带有连接的长字符串可能会影响性能. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [6.3](#6.3) <a name='6.3'></a> 注意:如果过度使用,带有连接的长字符串可能会影响性能. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```javascript
     // bad
@@ -461,7 +461,7 @@
 
   - [7.1](#7.1) <a name='7.1'></a> 用命名函数表达式而不是函数声明.
 
-  > Why? 错误放置的函数声明会引起误解,在少数情况下（如果有）您不能使用分配给变量的函数表达式. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
+  > Why? 错误放置的函数声明会引起误解,在少数情况下(如果有)您不能使用分配给变量的函数表达式. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
 
     ```javascript
     // bad
@@ -486,8 +486,8 @@
     })();
     ```
 
-  - [7.3](#7.3) <a name='7.3'></a> 不要在非函数块（if、while等等）内声明函数。把这个函数分配给一个变量。浏览器会允许你这样做,但浏览器解析方式不同,这是一个坏消息.
-  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262将 `block` 定义为语句列表。 函数声明不是语句. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [7.3](#7.3) <a name='7.3'></a> 不要在非函数块(if、while等等)内声明函数.把这个函数分配给一个变量.浏览器会允许你这样做,但浏览器解析方式不同,这是一个坏消息.
+  - [7.4](#7.4) <a name='7.4'></a> **Note:** ECMA-262将 `block` 定义为语句列表. 函数声明不是语句. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -514,7 +514,7 @@
     }
     ```
 
-  - [7.5](#7.5) <a name='7.5'></a> 不要用`arguments`命名参数。它的优先级高于每个函数作用域自带的 `arguments` 对象, 这会导致函数自带的 `arguments` 值被覆盖.
+  - [7.5](#7.5) <a name='7.5'></a> 不要用`arguments`命名参数.它的优先级高于每个函数作用域自带的 `arguments` 对象, 这会导致函数自带的 `arguments` 值被覆盖.
 
     ```javascript
     // bad
@@ -531,7 +531,7 @@
   <a name="es6-rest"></a>
   - [7.6](#7.6) <a name='7.6'></a> 不要使用`arguments`,用rest语法`...`代替.
 
-  > Why? `...`明确你想用哪个参数。而且rest参数是真数组,而不是类似数组的`arguments`.
+  > Why? `...`明确你想用哪个参数.而且rest参数是真数组,而不是类似数组的`arguments`.
 
     ```javascript
     // bad
@@ -553,7 +553,7 @@
     // really bad
     const handleThings = function(opts) {
       // 不, 我们不该改arguments
-      // 第二： 如果 opts 的值为 false, 它会被赋值为 {}
+      // 第二: 如果 opts 的值为 false, 它会被赋值为 {}
       // 虽然你想这么写, 但是这个会带来一些细微的bug
       opts = opts || {};
       // ...
@@ -600,7 +600,7 @@
 
 ## Arrow Functions
 
-  - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式时（如传递匿名函数时）,请使用箭头函数符号.
+  - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式时(如传递匿名函数时),请使用箭头函数符号.
 
   > Why? 它创建了一个`this`的当前执行上下文的函数的版本,这通常就是你想要的;而且箭头函数是更简洁的语法.
 
@@ -625,7 +625,7 @@
     [1, 2, 3].map((x) => x * x;);
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> 如果函数主体适合一行且只有一个参数,则可以忽略花括号和括号,并使用隐式返回。 否则,添加括号,花括号并使用`return`语句.
+  - [8.2](#8.2) <a name='8.2'></a> 如果函数主体适合一行且只有一个参数,则可以忽略花括号和括号,并使用隐式返回. 否则,添加括号,花括号并使用`return`语句.
 
   > Why? 语法糖,当多个函数链在一起的时候易读.
 
@@ -777,7 +777,7 @@
 
 ## Modules
 
-  - [10.1](#10.1) <a name='10.1'></a> 用(`import`/`export`) 模块而不是无标准的模块系统。你可以随时转到你喜欢的模块系统.
+  - [10.1](#10.1) <a name='10.1'></a> 用(`import`/`export`) 模块而不是无标准的模块系统.你可以随时转到你喜欢的模块系统.
 
   > Why? 模块化是未来,让我们现在就开启未来吧.
 
@@ -824,7 +824,7 @@
     import lodash = require('lodash')
     ```
 
-  - [10.4](#10.4) <a name='10.4'></a> 按类型导入组模块,然后按变量名称按字母顺序。 请遵循以下规则来排序模块导入：
+  - [10.4](#10.4) <a name='10.4'></a> 按类型导入组模块,然后按变量名称按字母顺序. 请遵循以下规则来排序模块导入:
      + 具有类型定义的外部库
      + 具有通配符导入功能的内部typescript模块
      + 不带通配符导入的内部typescript模块
@@ -860,9 +860,9 @@
 
 ## Iterators and Generators
 
-  - [11.1](#11.1) <a name='11.1'></a> Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
+  - [11.1](#11.1) <a name='11.1'></a> 不要使用迭代器.用JavaScript高级函数(例如 `map()` and `reduce()`) 代替 `for-of` 这样的循环.
 
-  > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
+  > Why? 这强调了我们不可变的规则. 处理返回值的纯函数比副作用更容易.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -887,16 +887,16 @@
     sum === 15;
     ```
 
-  - [11.2](#11.2) <a name='11.2'></a> Don't use generators for now.
+  - [11.2](#11.2) <a name='11.2'></a> 现在不要用generator.
 
-  > Why? They don't transpile well to ES5.
+  > Why? 它在ES5上支持的不好.
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Properties
 
-  - [12.1](#12.1) <a name='12.1'></a> Use dot notation when accessing properties.
+  - [12.1](#12.1) <a name='12.1'></a> 访问属性时使用点符号.
 
     ```javascript
     const luke = {
@@ -911,7 +911,7 @@
     const isJedi = luke.jedi;
     ```
 
-  - [12.2](#12.2) <a name='12.2'></a> Use subscript notation `[]` when accessing properties with a variable.
+  - [12.2](#12.2) <a name='12.2'></a> 当获取的属性是变量时用方括号`[]`取.
 
     ```javascript
     const luke = {
@@ -933,7 +933,7 @@
 
 ## Variables
 
-  - [13.1](#13.1) <a name='13.1'></a> Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [13.1](#13.1) <a name='13.1'></a> 始终使用const声明变量. 不这样做将导致全局变量. 我们要避免污染全局名称空间.
 
     ```javascript
     // bad
@@ -943,9 +943,9 @@
     const superPower = new SuperPower();
     ```
 
-  - [13.2](#13.2) <a name='13.2'></a> Use one `const` declaration per variable.
+  - [13.2](#13.2) <a name='13.2'></a> 每个变量使用一个 `const` 声明.
 
-    > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
+    > Why? 这种方式很容易去声明新的变量,你不用去考虑把`;`调换成`,`,或者引入一个只有标点的不同的变化.这种做法也可以是你在调试的时候单步每个声明语句,而不是一下跳过所有声明.
 
     ```javascript
     // bad
@@ -965,9 +965,9 @@
     const dragonball = 'z';
     ```
 
-  - [13.3](#13.3) <a name='13.3'></a> Group all your `const`s and then group all your `let`s.
+  - [13.3](#13.3) <a name='13.3'></a> `const` 放一起,`let` 放一起.
 
-  > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  > Why? 在你需要分配一个新的变量, 而这个变量依赖之前分配过的变量的时候,这种做法是有帮助的.
 
     ```javascript
     // bad
@@ -990,9 +990,9 @@
     let length;
     ```
 
-  - [13.4](#13.4) <a name='13.4'></a> Assign variables where you need them, but place them in a reasonable place.
+  - [13.4](#13.4) <a name='13.4'></a> 在你需要的地方声明变量,但是要放在合理的位置.
 
-  > Why? `let` and `const` are block scoped and not function scoped.
+  > Why? `let` 和 `const` 都是块级作用域而不是函数级作用域.
 
     ```javascript
     // good
@@ -1054,21 +1054,18 @@
 
 ## Hoisting
 
-  - [14.1](#14.1) <a name='14.1'></a> `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#14.1) <a name='14.1'></a> `var`声明会被提前到他的作用域的最前面,它分配的值还没有提前.`const` 和 `let`被赋予了新的调用概念 [时效区 —— Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). 重要的是要知道为什么 [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // 我们知道这个不会工作,假设没有定义全局的notDefined
     function example() {
 
       console.log(notDefined); // => throws a ReferenceError
 
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // 在你引用的地方之后声明一个变量,他会正常输出是因为变量作用域上升.
+    // 注意: declaredButNotAssigned的值没有上升
     function example() {
 
       console.log(declaredButNotAssigned); // => undefined
@@ -1076,9 +1073,8 @@
 
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope,
-    // which means our example could be rewritten as:
+    // 解释器把变量声明提升到作用域最前面,
+    // 可以重写成如下例子, 二者意义相同
     function example() {
 
       let declaredButNotAssigned;
@@ -1087,7 +1083,7 @@
 
     }
 
-    // using const and let
+    // 用 const, let就不一样了
     function example() {
 
       console.log(declaredButNotAssigned); // => throws a ReferenceError
@@ -1097,7 +1093,7 @@
     }
     ```
 
-  - [14.2](#14.2) <a name='14.2'></a> Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [14.2](#14.2) <a name='14.2'></a> 匿名函数表达式将使用其变量名,而不是函数分配.
 
     ```javascript
     function example() {
@@ -1115,7 +1111,7 @@
     }
     ```
 
-  - [14.3](#14.3) <a name='14.3'></a> Named function expressions hoist the variable name, not the function name or the function body.
+  - [14.3](#14.3) <a name='14.3'></a> 已命名函数表达式提升他的变量名,不是函数名或函数体.
 
     ```javascript
     function example() {
@@ -1134,8 +1130,7 @@
 
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // 函数名和变量名一样是也如此
     function example() {
 
       console.log(named); // => undefined
@@ -1151,7 +1146,7 @@
     }
     ```
 
-  - [14.4](#14.4) <a name='14.4'></a> Function declarations hoist their name and the function body.
+  - [14.4](#14.4) <a name='14.4'></a> 函数声明则提升了函数名和函数体.
 
     ```javascript
     function example() {
@@ -1167,22 +1162,26 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
+  - 详情请见 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Comparison Operators & Equality
 
-  - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
-  - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - [15.1](#15.1) <a name='15.1'></a>  用 `===` 和 `!==` 而不是 `==` 和 `!=`.
+  - [15.2](#15.2) <a name='15.2'></a> 条件语句如'if'语句使用强制`ToBoolean'抽象方法来评估它们的表达式,并且始终遵循以下简单规则:
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + **Objects** 计算成 **true**
+    + **Undefined** 计算成 **false**
+    + **Null** 计算成 **false**
+    + **Booleans** 计算成 **the value of the boolean**
+    + **Numbers** 
+      + **+0, -0, or NaN** 计算成 **false**
+      + 其他 **true**
+    + **Strings**
+      + `''` 计算成 **false**
+      + 其他 **true**
 
     ```javascript
     if ([0]) {
@@ -1191,7 +1190,7 @@
     }
     ```
 
-  - [15.3](#15.3) <a name='15.3'></a> Use shortcuts.
+  - [15.3](#15.3) <a name='15.3'></a> 布尔值用缩写.
 
     ```javascript
     // bad
@@ -1215,7 +1214,7 @@
     }
     ```
 
-  - [15.4](#15.4) <a name='15.4'></a> For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [15.4](#15.4) <a name='15.4'></a> 更多信息请见 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
 **[⬆ back to top](#table-of-contents)**
 
