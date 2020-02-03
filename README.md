@@ -76,7 +76,7 @@
 
   - [2.1](#2.1) <a name='2.1'></a> 所有的赋值都用`const`,避免使用`var`.
 
-  > why? 这样可以确保你不能重新分配引用(变异),这可能导致bug和难以理解的代码.
+    > why? 这样可以确保你不能重新分配引用(变异),这可能导致bug和难以理解的代码.
 
     ```javascript
     // bad
@@ -90,7 +90,7 @@
 
   - [2.2](#2.2) <a name='2.2'></a> 如果你一定要对参数重新赋值,那就用`let`,而不是`var`.
 
-  > Why? 因为`let`是块级作用域,而`var`是函数级作用域.
+    > Why? 因为`let`是块级作用域,而`var`是函数级作用域.
 
     ```javascript
     // bad
@@ -174,7 +174,7 @@
   <a name="es6-computed-properties"></a>
   - [3.4](#3.4) <a name='3.4'></a> 使用动态属性名称创建对象时,用计算后属性名称.
 
-  > Why? 这可以使你将定义的所有属性放在对象的一个地方.
+    > Why? 这可以使你将定义的所有属性放在对象的一个地方.
 
     ```javascript
 
@@ -229,7 +229,7 @@
   <a name="es6-object-concise"></a>
   - [3.6](#3.6) <a name='3.6'></a> 用属性值缩写.
 
-  > Why? It is shorter to write and descriptive.
+    > Why? It is shorter to write and descriptive.
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -247,7 +247,7 @@
 
   - [3.7](#3.7) <a name='3.7'></a> 将你的所有缩写放在对象声明的开始.
 
-  > Why? 这样也是为了更方便的知道有哪些属性用了缩写.
+    > Why? 这样也是为了更方便的知道有哪些属性用了缩写.
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -330,7 +330,7 @@
 
   - [5.1](#5.1) <a name='5.1'></a>用对象的解构赋值来获取和使用对象某个或多个属性值.
 
-  > Why? 解构保存了这些属性的临时值/引用.
+    > Why? 解构保存了这些属性的临时值/引用.
 
     ```javascript
     // bad
@@ -368,7 +368,7 @@
 
   - [5.3](#5.3) <a name='5.3'></a> 多个返回值用对象的解构,而不是数据解构.
 
-  > Why? 你可以在后期添加新的属性或者变换变量的顺序而不会打破原有的调用.
+    > Why? 你可以在后期添加新的属性或者变换变量的顺序而不会打破原有的调用.
 
     ```javascript
     // bad
@@ -429,7 +429,7 @@
   <a name="es6-template-literals"></a>
   - [6.4](#6.4) <a name='6.4'></a> 用字符串模板而不是字符串拼接来组织可编程字符串.
 
-  > Why? 模板字符串更具可读性、语法简洁、字符串插入参数.
+    > Why? 模板字符串更具可读性、语法简洁、字符串插入参数.
 
     ```javascript
     // bad
@@ -461,7 +461,7 @@
 
   - [7.1](#7.1) <a name='7.1'></a> 用命名函数表达式而不是函数声明.
 
-  > Why? 错误放置的函数声明会引起误解,在少数情况下(如果有)您不能使用分配给变量的函数表达式. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
+    > Why? 错误放置的函数声明会引起误解,在少数情况下(如果有)您不能使用分配给变量的函数表达式. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
 
     ```javascript
     // bad
@@ -531,7 +531,7 @@
   <a name="es6-rest"></a>
   - [7.6](#7.6) <a name='7.6'></a> 不要使用`arguments`,用rest语法`...`代替.
 
-  > Why? `...`明确你想用哪个参数.而且rest参数是真数组,而不是类似数组的`arguments`.
+    > Why? `...`明确你想用哪个参数.而且rest参数是真数组,而不是类似数组的`arguments`.
 
     ```javascript
     // bad
@@ -579,21 +579,21 @@
 
   - [7.8](#7.8) <a name='7.8'></a> 默认参数避免副作用.
 
-  > Why? 它会令人迷惑不解.
+    > Why? 它会令人迷惑不解.
 
-  ```javascript
-  var b = 1;
-  // bad
-  const count = function(a = b++) {
+    ```javascript
+    var b = 1;
+    // bad
+    const count = function(a = b++) {
 
-    console.log(a);
+      console.log(a);
 
-  }
-  count();  // 1
-  count();  // 2
-  count(3); // 3
-  count();  // 3
-  ```
+    }
+    count();  // 1
+    count();  // 2
+    count(3); // 3
+    count();  // 3
+    ```
 
 
 **[⬆ back to top](#table-of-contents)**
@@ -602,9 +602,9 @@
 
   - [8.1](#8.1) <a name='8.1'></a> 当你必须使用函数表达式时(如传递匿名函数时),请使用箭头函数符号.
 
-  > Why? 它创建了一个`this`的当前执行上下文的函数的版本,这通常就是你想要的;而且箭头函数是更简洁的语法.
+    > Why? 它创建了一个`this`的当前执行上下文的函数的版本,这通常就是你想要的;而且箭头函数是更简洁的语法.
 
-  > Why not? 如果函数相当复杂,则可以将该逻辑移到其自己的函数声明中.
+    > Why not? 如果函数相当复杂,则可以将该逻辑移到其自己的函数声明中.
 
     ```javascript
     // bad
@@ -627,9 +627,9 @@
 
   - [8.2](#8.2) <a name='8.2'></a> 如果函数主体适合一行且只有一个参数,则可以忽略花括号和括号,并使用隐式返回. 否则,添加括号,花括号并使用`return`语句.
 
-  > Why? 语法糖,当多个函数链在一起的时候易读.
+    > Why? 语法糖,当多个函数链在一起的时候易读.
 
-  > Why not? 当你计算返回一个对象.
+    > Why not? 当你计算返回一个对象.
 
     ```javascript
     // good
@@ -648,7 +648,7 @@
 
   - [9.1](#9.1) <a name='9.1'></a> 常用`class`,避免直接操作`prototype`.
 
-  > Why? `class` 语法更简洁更易理解.
+    > Why? `class` 语法更简洁更易理解.
 
     ```javascript
     // bad
@@ -679,7 +679,7 @@
 
   - [9.2](#9.2) <a name='9.2'></a> 用`extends`实现继承.
 
-  > Why? 它是一种内置的方法来继承原型功能而不打破 `instanceof`.
+    > Why? 它是一种内置的方法来继承原型功能而不打破 `instanceof`.
 
     ```javascript
     // bad
@@ -779,7 +779,7 @@
 
   - [10.1](#10.1) <a name='10.1'></a> 用(`import`/`export`) 模块而不是无标准的模块系统.你可以随时转到你喜欢的模块系统.
 
-  > Why? 模块化是未来,让我们现在就开启未来吧.
+    > Why? 模块化是未来,让我们现在就开启未来吧.
 
     ```javascript
     // bad
@@ -797,7 +797,7 @@
 
   - [10.2](#10.2) <a name='10.2'></a> 不要直接从 `import` 中导出.
 
-  > Why? 虽然一行是简洁的,有一个明确的方式进口和一个明确的出口方式来保证一致性.
+    > Why? 虽然一行是简洁的,有一个明确的方式进口和一个明确的出口方式来保证一致性.
 
     ```javascript
     // bad
@@ -812,7 +812,7 @@
 
   - [10.3](#10.3) <a name='10.3'></a> 将TypeScript模块导入用于具有类型定义的非ES6库.  检查[DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) 中可用的类型定义文件.
 
-  > Why? 这将在可用时提供来自外部模块的类型信息
+    > Why? 这将在可用时提供来自外部模块的类型信息
 
     ```javascript
     // bad
@@ -830,7 +830,7 @@
      + 不带通配符导入的内部typescript模块
      + 没有类型定义的外部库
 
-  > Why? 这样可以使导入部分在所有模块中保持一致.
+    > Why? 这样可以使导入部分在所有模块中保持一致.
 
     ```javascript
     // bad
@@ -862,7 +862,7 @@
 
   - [11.1](#11.1) <a name='11.1'></a> 不要使用迭代器.用JavaScript高级函数(例如 `map()` and `reduce()`) 代替 `for-of` 这样的循环.
 
-  > Why? 这强调了我们不可变的规则. 处理返回值的纯函数比副作用更容易.
+    > Why? 这强调了我们不可变的规则. 处理返回值的纯函数比副作用更容易.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
@@ -889,7 +889,7 @@
 
   - [11.2](#11.2) <a name='11.2'></a> 现在不要用generator.
 
-  > Why? 它在ES5上支持的不好.
+    > Why? 它在ES5上支持的不好.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -967,7 +967,7 @@
 
   - [13.3](#13.3) <a name='13.3'></a> `const` 放一起,`let` 放一起.
 
-  > Why? 在你需要分配一个新的变量, 而这个变量依赖之前分配过的变量的时候,这种做法是有帮助的.
+    > Why? 在你需要分配一个新的变量, 而这个变量依赖之前分配过的变量的时候,这种做法是有帮助的.
 
     ```javascript
     // bad
@@ -992,7 +992,7 @@
 
   - [13.4](#13.4) <a name='13.4'></a> 在你需要的地方声明变量,但是要放在合理的位置.
 
-  > Why? `let` 和 `const` 都是块级作用域而不是函数级作用域.
+    > Why? `let` 和 `const` 都是块级作用域而不是函数级作用域.
 
     ```javascript
     // good
