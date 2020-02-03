@@ -625,7 +625,7 @@
     [1, 2, 3].map((x) => x * x;);
     ```
 
-  - [8.2](#8.2) <a name='8.2'></a> 如果函数主体适合一行且只有一个参数,则可以忽略花括号和括号,并使用隐式返回. 否则,添加括号,花括号并使用`return`语句.
+  - [8.2](#8.2) <a name='8.2'></a> 如果函数主体适合一行且只有一个参数,则可以忽略大括号和括号,并使用隐式返回. 否则,添加括号,大括号并使用`return`语句.
 
     > Why? 语法糖,当多个函数链在一起的时候易读.
 
@@ -1221,7 +1221,7 @@
 
 ## Blocks
 
-  - [16.1](#16.1) <a name='16.1'></a> Use braces with multi-line blocks or omit braces for two line blocks.
+  - [16.1](#16.1) <a name='16.1'></a> 将大括号与多行块一起使用,或者将大括号省略给两个行块.
 
     ```javascript
     // bad
@@ -1249,8 +1249,7 @@
     }
     ```
 
-  - [16.2](#16.2) <a name='16.2'></a> If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
-    `if` block's closing brace.
+  - [16.2](#16.2) <a name='16.2'></a> `if`表达式的`else`和`if`的关闭大括号在一行.
 
     ```javascript
     // bad
@@ -1271,9 +1270,9 @@
     }
     ```
 
-    - [16.3](#16.3) <a name='16.3'></a> If you're using multi-line blocks with `if` and `else`, do not omit curly braces.
+    - [16.3](#16.3) <a name='16.3'></a> 如果您使用带有`if`和`else`的多行块,请不要省略花括号.
 
-    > Why? Omitting curly braces in multi-line blocks can easily cause unexpected behavior.
+      > Why? 在多行块中省略花括号很容易导致意外行为.
 
       ```javascript
       // bad
@@ -1298,7 +1297,7 @@
 
 ## Comments
 
-  - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [17.1](#17.1) <a name='17.1'></a> 对多行注释使用`/ ** ... * /`. 包括说明,为所有参数指定类型和值并返回值.
 
     ```javascript
     // bad
@@ -1332,7 +1331,7 @@
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - [17.2](#17.2) <a name='17.2'></a> 单行注释用`//`. 将单行注释放在被注释区域上面.如果注释不是在第一行,那么注释前面就空一行.
 
     ```javascript
     // bad
@@ -1366,9 +1365,9 @@
     }
     ```
 
-  - [17.3](#17.3) <a name='17.3'></a> Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - [17.3](#17.3) <a name='17.3'></a> 给您的注释加上FIXME或TODO前缀可以帮助其他开发人员快速了解您是否指出需要重新审视的问题,或者是否建议解决需要实施的问题. 这些与常规评论不同,因为它们是可行的. 这些动作是“ FIXME-需要弄清楚”或“ TODO-需要实现”.
 
-  - [17.4](#17.4) <a name='17.4'></a> Use `// FIXME:` to annotate problems.
+  - [17.4](#17.4) <a name='17.4'></a> 使用`// FIXME:`注释问题.
 
     ```javascript
     class Calculator {
@@ -1381,7 +1380,7 @@
     }
     ```
 
-  - [17.5](#17.5) <a name='17.5'></a> Use `// TODO:` to annotate solutions to problems.
+  - [17.5](#17.5) <a name='17.5'></a> 使用`// TODO:`注释问题的解决方案.
 
     ```javascript
     class Calculator {
@@ -1399,7 +1398,7 @@
 
 ## Whitespace
 
-  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
+  - [18.1](#18.1) <a name='18.1'></a> 两个空格用tab.
 
     ```javascript
     // bad
@@ -1424,7 +1423,7 @@
     }
     ```
 
-  - [18.2](#18.2) <a name='18.2'></a> Place 1 space before the leading brace.
+  - [18.2](#18.2) <a name='18.2'></a> 在大括号前空一格.
 
     ```javascript
     // bad
@@ -1454,7 +1453,7 @@
     });
     ```
 
-  - [18.3](#18.3) <a name='18.3'></a> Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
+  - [18.3](#18.3) <a name='18.3'></a> 在控制语句(`if`, `while` 等)的圆括号前空一格.在函数调用和定义时,参数列表和函数名之间不空格.
 
     ```javascript
     // bad
@@ -1486,7 +1485,7 @@
     }
     ```
 
-  - [18.4](#18.4) <a name='18.4'></a> Set off operators with spaces.
+  - [18.4](#18.4) <a name='18.4'></a> 用空格来隔开运算符.
 
     ```javascript
     // bad
@@ -1496,7 +1495,7 @@
     const x = y + 5;
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> End files with a single newline character.
+  - [18.5](#18.5) <a name='18.5'></a> 用单个换行符结束文件.
 
     ```javascript
     // bad
@@ -1520,8 +1519,7 @@
     })(this);↵
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> Use indentation when making long method chains. Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement.
+  - [18.5](#18.5) <a name='18.5'></a> 当出现长的方法链（>2个）时用缩进.用点开头强调该行是一个方法调用,而不是一个新的语句.
 
     ```javascript
     // bad
@@ -1560,7 +1558,7 @@
         .call(tron.led);
     ```
 
-  - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after the opening of a block and before the closing of a block
+  - [18.6](#18.6) <a name='18.6'></a> 在块打开之后和块关闭之前留空行
 
   ```javascript
   // bad
@@ -1588,7 +1586,7 @@
   }
   ```
 
-  - [18.7](#18.7) <a name='18.7'></a> Leave a blank line after blocks and before the next statement.
+  - [18.7](#18.7) <a name='18.7'></a> 在一个代码块后下一条语句前空一行.
 
     ```javascript
     // bad
@@ -1634,7 +1632,7 @@
 
 ## Commas
 
-  - [19.1](#19.1) <a name='19.1'></a> Leading commas: **Nope.**
+  - [19.1](#19.1) <a name='19.1'></a> 不要前置逗号.
 
     ```javascript
     // bad
@@ -1668,9 +1666,9 @@
     };
     ```
 
-  - [19.2](#19.2) <a name='19.2'></a> Additional trailing comma: **Yup.**
+  - [19.2](#19.2) <a name='19.2'></a> 额外结尾逗号: **Yup.**
 
-  > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don't have to worry about the [trailing comma problem](es5/README.md#commas) in legacy browsers.
+    > Why? 这导致git diffs更清洁. 此外,像Babel这样的转换器会删除转换代码中的额外的逗号,这意味着你不必担心旧版浏览器中的[ [trailing comma problem](es5/README.md#commas) in legacy browsers.
 
     ```javascript
     // bad - git diff without trailing comma
@@ -1735,7 +1733,7 @@
 
     })();
 
-    // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+    // good (行首加分号,避免文件被连接到一起时立即执行函数被当做变量来执行.)
     ;(() => {
 
       const name = 'Skywalker';
