@@ -1365,7 +1365,7 @@
     }
     ```
 
-  - [17.3](#17.3) <a name='17.3'></a> 给您的注释加上FIXME或TODO前缀可以帮助其他开发人员快速了解您是否指出需要重新审视的问题,或者是否建议解决需要实施的问题. 这些与常规评论不同,因为它们是可行的. 这些动作是“ FIXME-需要弄清楚”或“ TODO-需要实现”.
+  - [17.3](#17.3) <a name='17.3'></a> 给您的注释加上FIXME或TODO前缀可以帮助其他开发人员快速了解您是否指出需要重新审视的问题,或者是否建议解决需要实施的问题. 这些与常规评论不同,因为它们是可行的. 这些动作是" FIXME-需要弄清楚"或" TODO-需要实现".
 
   - [17.4](#17.4) <a name='17.4'></a> 使用`// FIXME:`注释问题.
 
@@ -1519,7 +1519,7 @@
     })(this);↵
     ```
 
-  - [18.5](#18.5) <a name='18.5'></a> 当出现长的方法链（>2个）时用缩进.用点开头强调该行是一个方法调用,而不是一个新的语句.
+  - [18.5](#18.5) <a name='18.5'></a> 当出现长的方法链（>2个)时用缩进.用点开头强调该行是一个方法调用,而不是一个新的语句.
 
     ```javascript
     // bad
@@ -1749,7 +1749,7 @@
 
 ## Type Casting & Coercion
 
-  - [21.1](#21.1) <a name='21.1'></a> Perform type coercion at the beginning of the statement.
+  - [21.1](#21.1) <a name='21.1'></a> 在语句开始执行强制类型转换.
   - [21.2](#21.2) <a name='21.2'></a> Strings:
 
     ```javascript
@@ -1762,7 +1762,7 @@
     const totalScore = String(this.reviewScore);
     ```
 
-  - [21.3](#21.3) <a name='21.3'></a> Use `parseInt` for Numbers and always with a radix for type casting.
+  - [21.3](#21.3) <a name='21.3'></a> 使用`parseInt`表示数字,并始终使用基数进行类型转换.
 
     ```javascript
     const inputValue = '4';
@@ -1786,19 +1786,18 @@
     const val = parseInt(inputValue, 10);
     ```
 
-  - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - [21.4](#21.4) <a name='21.4'></a> 如果出于某种原因您正在做一些疯狂的事情,而" parseInt"是您的瓶颈,并且出于[性能原因]（http://jsperf.com/coercion-vs-casting/3)而需要使用移位运算,请在注释中说明原因以及 你在做什么.
 
     ```javascript
     // good
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+      * parseInt是代码运行慢的原因
+     * 用Bitshifting将字符串转成数字使代码运行效率大幅增长
      */
     const val = inputValue >> 0;
     ```
 
-  - [21.5](#21.5) <a name='21.5'></a> **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
+  - [21.5](#21.5) <a name='21.5'></a> **注意:** 用移位运算要小心. 数字使用[64-位](https://es5.github.io/#x4.3.19)表示的,但移位运算常常返回的是32为整形[source](https://es5.github.io/#x11.7)).移位运算对大于32位的整数会导致意外行为.[Discussion](https://github.com/airbnb/javascript/issues/109). 最大的32位整数是 2,147,483,647:
 
     ```javascript
     2147483647 >> 0 //=> 2147483647
@@ -1806,7 +1805,7 @@
     2147483649 >> 0 //=> -2147483647
     ```
 
-  - [21.6](#21.6) <a name='21.6'></a> Booleans:
+  - [21.6](#21.6) <a name='21.6'></a> 布尔:
 
     ```javascript
     const age = 0;
@@ -1826,7 +1825,7 @@
 
 ## Naming Conventions
 
-  - [22.1](#22.1) <a name='22.1'></a> Avoid single letter names. Be descriptive with your naming.
+  - [22.1](#22.1) <a name='22.1'></a> 避免用一个字母命名,让你的命名可描述.
 
     ```javascript
     // bad
@@ -1840,7 +1839,7 @@
     }
     ```
 
-  - [22.2](#22.2) <a name='22.2'></a> Use camelCase when naming objects, functions, and instances.
+  - [22.2](#22.2) <a name='22.2'></a> 命名对象、函数和实例时,使用小驼峰式.
 
     ```javascript
     // bad
@@ -1853,7 +1852,7 @@
     const thisIsMyFunction = function() {}
     ```
 
-  - [22.3](#22.3) <a name='22.3'></a> Use PascalCase when naming constructors, classes, modules, or interfaces.
+  - [22.3](#22.3) <a name='22.3'></a> 命名构造函数、类、模块或接口时,使用大驼峰式.
 
     ```javascript
     // bad
@@ -1887,7 +1886,7 @@
     });
     ```
 
-  - [22.4](#22.4) <a name='22.4'></a> Use snake_case when naming object properties.
+  - [22.4](#22.4) <a name='22.4'></a> 命名对象属性时,使用snake_case.
 
     ```javascript
     // bad
@@ -1903,7 +1902,7 @@
     }
     ```
 
-  - [22.5](#22.5) <a name='22.5'></a> Use a leading underscore `_` when naming private properties.
+  - [22.5](#22.5) <a name='22.5'></a> 命名私有属性时,请使用下划线" _".
 
     ```javascript
     // bad
@@ -1914,7 +1913,7 @@
     this._firstName = 'Panda';
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> Don't save references to `this`. Use arrow functions or Function#bind.
+  - [22.6](#22.6) <a name='22.6'></a> 不要保存对"this"的引用. 使用箭头函数或Function＃bind.
 
     ```javascript
     // bad
@@ -1951,7 +1950,8 @@
     }
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> If your file exports a single class, your filename should be exactly the name of the class.
+  - [22.7](#22.7) <a name='22.7'></a> 如果文件导出单个类,则文件名应与该类的名称完全相同.
+
     ```javascript
     // file contents
     class CheckBox {
@@ -1970,7 +1970,7 @@
     import CheckBox from './CheckBox';
     ```
 
-  - [22.8](#22.8) <a name='22.8'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [22.8](#22.8) <a name='22.8'></a> 当你export-default一个函数时,函数名用小驼峰,文件名需要和函数名一致.
 
     ```javascript
     function makeStyleGuide() {
@@ -1979,7 +1979,7 @@
     export default makeStyleGuide;
     ```
 
-  - [22.9](#22.9) <a name='22.9'></a> Use PascalCase when you export a singleton / function library / bare object.
+  - [22.9](#22.9) <a name='22.9'></a> 当你export一个结构体/类/单例/函数库/对象 时用大驼峰.
 
     ```javascript
     const AirbnbStyleGuide = {
@@ -1996,8 +1996,8 @@
 
 ## Accessors
 
-  - [23.1](#23.1) <a name='23.1'></a> Accessor functions for properties are not required.
-  - [23.2](#23.2) <a name='23.2'></a> If you do make accessor functions use getVal() and setVal('hello').
+  - [23.1](#23.1) <a name='23.1'></a> 不需要使用属性的访问器函数.
+  - [23.2](#23.2) <a name='23.2'></a> 不要使用JavaScript的getters/setters,因为他们会产生副作用,并且难以测试、维护和理解.相反的,你可以用 getVal()和setVal('hello')去创造你自己的accessor函数.
 
     ```javascript
     // bad
@@ -2013,7 +2013,7 @@
     dragon.setAge(25);
     ```
 
-  - [23.3](#23.3) <a name='23.3'></a> If the property is a boolean, use isVal() or hasVal().
+  - [23.3](#23.3) <a name='23.3'></a> 如果属性/方法是`boolean`, 用 `isVal()` 或 `hasVal()`.
 
     ```javascript
     // bad
@@ -2027,7 +2027,7 @@
     }
     ```
 
-  - [23.4](#23.4) <a name='23.4'></a> It's okay to create get() and set() functions, but be consistent.
+  - [23.4](#23.4) <a name='23.4'></a> 用get()和set()函数是可以的,但是要一起用.
 
     ```javascript
     class Jedi {
@@ -2059,7 +2059,7 @@
 
 ## Events
 
-  - [24.1](#24.1) <a name='24.1'></a> When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - [24.1](#24.1) <a name='24.1'></a> 通过哈希而不是原始值向事件装载数据时(不论是DOM事件还是像Backbone事件的很多属性). 这使得后续的贡献者（程序员)向这个事件装载更多的数据时不用去找或者更新每个处理器.例如:
 
     ```javascript
     // bad
@@ -2090,7 +2090,7 @@
 
 ## jQuery
 
-  - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
+  - [25.1](#25.1) <a name='25.1'></a> jQuery对象用`$`变量表示.
 
     ```javascript
     // bad
@@ -2100,7 +2100,7 @@
     const $sidebar = $('.sidebar');
     ```
 
-  - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
+  - [25.2](#25.2) <a name='25.2'></a> 暂存jQuery查找.
 
     ```javascript
     // bad
@@ -2131,8 +2131,8 @@
     }
     ```
 
-  - [25.3](#25.3) <a name='25.3'></a> For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - [25.4](#25.4) <a name='25.4'></a> Use `find` with scoped jQuery object queries.
+  - [25.3](#25.3) <a name='25.3'></a> DOM查找用层叠式`$('.sidebar ul')` 或 父节点 > 子节点 `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - [25.4](#25.4) <a name='25.4'></a> 用jQuery对象查询作用域的`find`方法查询.
 
     ```javascript
     // bad
@@ -2160,7 +2160,7 @@
   - [26.1](#26.1) <a name='26.1'></a> Type annotations placeholder.
 
 <a name="ts-generics"></a>
-  - [26.2](#26.2) <a name='26.2'></a> Use "T" for the type variable if only one is needed.
+  - [26.2](#26.2) <a name='26.2'></a> 如果只需要一个,则使用" T"作为类型变量.
 
 ```javascript
 function identify<T>(arg: T): T {
@@ -2170,7 +2170,7 @@ function identify<T>(arg: T): T {
 }
 ```
 
-  - [26.3](#26.3) <a name='26.3'></a> If more than one type variable is required, start with letter "T" and name your variable in alphabetical sequence.
+  - [26.3](#26.3) <a name='26.3'></a> 如果需要多个类型变量,请以字母"T"开头,并按字母顺序命名变量.
 
 ```javascript
 function find<T, U extends Findable>(needle: T, haystack: U): U {
@@ -2180,7 +2180,7 @@ function find<T, U extends Findable>(needle: T, haystack: U): U {
 }
 ```
 
-  - [26.4](#26.4) <a name='26.4'></a> When possible, allow the compiler to infer type of variables.
+  - [26.4](#26.4) <a name='26.4'></a> 如果可能,允许编译器推断变量的类型.
 
 ```javascript
 // bad
@@ -2190,7 +2190,7 @@ const output = identify<string>("myString");
 const output = identity("myString");
 ```
 
-  - [26.5](#26.5) <a name='26.5'></a> When creating factories using generics, be sure to include the constructor function in the type.
+  - [26.5](#26.5) <a name='26.5'></a> 使用泛型创建函数时,请确保在类型中包含构造函数.
 
 ```javascript
 function create<t>(thing: {new(): T;}): T {
@@ -2214,7 +2214,7 @@ function create<t>(thing: {new(): T;}): T {
 ## Organization
 
 <a name="ts-modules"></a>
-  - [28.1](#28.1) <a name='28.1'></a> 1 file per logical component, and each file should be divided into logical divisions via modules. 
+  - [28.1](#28.1) <a name='28.1'></a> 每个逻辑组件1个文件,每个文件应通过模块划分为逻辑分区. 
 
   ```javascript
   module Automobile {
@@ -2226,17 +2226,17 @@ function create<t>(thing: {new(): T;}): T {
   }
   ```
   
-  - [28.2](#28.2) <a name='28.2'></a> Export one main module per file so it can be required by other files.
+  - [28.2](#28.2) <a name='28.2'></a> 每个文件导出一个主模块,以便其他文件可以使用.
 
   ```javascript
   module Automobile {
 
-    // hidden module, will not be accessible via "require"
+    // 隐藏的模块,将无法通过“ require”访问
     Honda {
 
     }
   
-    // public module, will be accessible via "require"
+    // 公共模块,可以通过“ require”访问
     export Ford {
 
       export function vroom() {
@@ -2252,7 +2252,7 @@ function create<t>(thing: {new(): T;}): T {
   export default Automobile;
   ```
 
-- [28.3](#28.3) <a name='28.3'></a> Order your code (alphabetically) in the following order within each module:
+- [28.3](#28.3) <a name='28.3'></a> 在每个模块中按以下顺序对代码进行排序（字母顺序)：
    - var
    - export var
    - let
@@ -2279,7 +2279,7 @@ function create<t>(thing: {new(): T;}): T {
 
 ## ECMAScript 6 Styles
 
-  - [30.1](#30.1) <a name='30.1'></a> This is a collection of links to the various es6 features.
+  - [30.1](#30.1) <a name='30.1'></a> 这是收集到的各种ES6特性的链接.
 
 1. [Arrow Functions](#arrow-functions)
 1. [Classes](#constructors)
@@ -2299,7 +2299,7 @@ function create<t>(thing: {new(): T;}): T {
 
 ## Typescript 1.5 Styles
 
-  - [31.1](#31.1) <a name='31.1'></a> This is a collection of links to the various es6 features.
+  - [31.1](#31.1) <a name='31.1'></a> 这是收集到的各种ES6特性的链接.
 
 1. [Type Annotations](#ts-type-annotations)
 1. [Interfaces](#ts-interfaces)
